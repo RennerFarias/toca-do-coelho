@@ -1,32 +1,125 @@
-body {
 
-    background-image: url(https://wallpapercave.com/wp/wp6600355.jpg); background-repeat: no-repeat; background-size: cover;} 
-
-
-h1{color: #FFFFFF; text-align: center; font-family: "Geist", sans-serif;}
-
-h2{color: #D6D6D6; text-align: center; font-family: "Geist", sans-serif;}
-
-p {color: #BFBFBF; text-align: center; font-family: "Geist", sans-serif;} 
-
-.centro{
-    text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-a{color: #FFFFFF;} 
-
-nav a{
+body {
+    min-height: 100vh;
+    font-family: "Geist", sans-serif;
+    color: #FFFFFF;
     display: flex;
     justify-content: center;
-    gap: 40px;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://wallpapercave.com/wp/wp6600355.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+main {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(10, 10, 15, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 0%, #a5a5a5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: #D6D6D6;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.centralizardiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    min-height: 48px; 
+    padding: 12px 32px;
+    color: #FFFFFF;
     text-decoration: none;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.centralizardiv  {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  height: 60vh;           
+nav a:hover, nav a:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    outline: none;
 }
 
+nav a:active {
+    transform: translateY(1px);
+}
+
+/* animação */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    main {
+        padding: 30px 20px;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.1rem;
+    }
+}

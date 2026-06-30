@@ -1,41 +1,159 @@
-
-.wallpapersel{background-image: url(https://wallpapercave.com/wp/wp11061147.jpg); 
-background-attachment: fixed; 
-background-repeat: no-repeat;
-background-size: cover;}
-
-
-h1{color: #FFFFFF; font-family: "Geist", sans-serif;}
-
-h2{color: #D6D6D6;font-family: "Geist", sans-serif;}
-
-p {color: #BFBFBF;font-family: "Geist", sans-serif} 
-
-a{color: #FFFFFF;font-family: "Geist", sans-serif;} 
-
-nav{
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+/* Reset & Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.meustextos {
-    max-width: 60%; 
-     width: 92%;
-    margin-left: 2%;  
-    
+body.wallpapersel {
+    background-image: url(https://wallpapercave.com/wp/wp11061147.jpg); 
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: "Geist", sans-serif;
+    color: #FFFFFF;
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
-.navee  {
+.navee {
     position: sticky;
     top: 0;
-    background-color: black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navee nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
 }
 
 .navee a {
-
+    color: #FFFFFF;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    padding: 12px 24px; /* Comfortable touch target for Android */
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
-/*toda vez que eu quiser fazer um limite de tela posso usar o max-width pra saber quantos % o testo vai ocupar e margin-left ou righ para dar uma marge entre as bordas do site!!!!*/
+.navee a:hover, .navee a:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    letter-spacing: 2px;
+}
+
+.navee hr {
+    display: none; 
+}
+
+.meustextos {
+    max-width: 800px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background-color: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 0%, #a5a5a5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #D6D6D6;
+    font-weight: 400;
+    margin-bottom: 28px;
+    border-left: 3px solid rgba(255, 255, 255, 0.4);
+    padding-left: 12px;
+}
+
+p {
+    font-size: 1.05rem;
+    color: #BFBFBF;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+p:last-of-type {
+    margin-bottom: 30px;
+}
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.meustextos img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.meustextos img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* animação */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .meustextos {
+        margin: 20px auto;
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 0.95rem;
+        text-align: left; 
+    }
+}
